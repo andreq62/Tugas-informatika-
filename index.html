@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kalkulator Sederhana</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .kalkulator {
+      width: 300px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .tombol {
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      padding: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+    }
+    .tombol:hover {
+      background-color: #3e8e41;
+    }
+  </style>
+</head>
+<body>
+  <div class="kalkulator">
+    <input type="text" id="layar" disabled>
+    <div>
+      <button class="tombol" onclick="tambah(7)">7</button>
+      <button class="tombol" onclick="tambah(8)">8</button>
+      <button class="tombol" onclick="tambah(9)">9</button>
+      <button class="tombol" onclick="operasi('/')">/</button>
+    </div>
+    <div>
+      <button class="tombol" onclick="tambah(4)">4</button>
+      <button class="tombol" onclick="tambah(5)">5</button>
+      <button class="tombol" onclick="tambah(6)">6</button>
+      <button class="tombol" onclick="operasi('*')">*</button>
+    </div>
+    <div>
+      <button class="tombol" onclick="tambah(1)">1</button>
+      <button class="tombol" onclick="tambah(2)">2</button>
+      <button class="tombol" onclick="tambah(3)">3</button>
+      <button class="tombol" onclick="operasi('-')">-</button>
+    </div>
+    <div>
+      <button class="tombol" onclick="tambah(0)">0</button>
+      <button class="tombol" onclick="tambah('.')">.</button>
+      <button class="tombol" onclick="operasi('+')">+</button>
+      <button class="tombol" onclick="hasil()">=</button>
+    </div>
+  </div>
+
+  <script>
+    let layar = document.getElementById('layar');
+    let operasiSekarang = '';
+    let nilai1 = '';
+    let nilai2 = '';
+
+    function tambah(angka) {
+      layar.value += angka;
+    }
+
+    function operasi(operasi) {
+      nilai1 = layar.value;
+      operasiSekarang = operasi;
+      layar.value = '';
+    }
+
+    function hasil() {
+      nilai2 = layar.value;
+      let hasil;
+      switch (operasiSekarang) {
+        case '+':
+          hasil = parseFloat(nilai1) + parseFloat(nilai2);
+          break;
+        case '-':
+          hasil = parseFloat(nilai1) - parseFloat(nilai2);
+          break;
+        case '*':
+          hasil = parseFloat(nilai1) * parseFloat(nilai2);
+          break;
+        case '/':
+          hasil = parseFloat(nilai1) / parseFloat(nilai2);
+          break;
+        default:
+          hasil = '';
+      }
+      layar.value = hasil;
+    }
+  </script>
+</body>ini tugas informatika dari Andri Setiawan
+</html>
